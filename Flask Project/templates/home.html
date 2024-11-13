@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='java.js') }}" defer></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Welcome to My Website</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/search">Weather Search</a></li>
+                {% if session.get('user') %}
+                    <li>Welcome, {{ session['user'] }}</li>
+                    <li><a href="/logout">Logout</a></li>
+                {% else %}
+                    <li><a href="/signup">Sign Up</a></li>
+                    <li><a href="/login">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2 id="about">About Me</h2>
+        <p>I'm Max Ye, 14 years old. Currently a freshman in CCA.</p>
+        <img src="https://announcements.catapultcms.com/uploads/pictures/bf2034290ff04b2aa50e4c5c6f3bb033-500.png" alt="CCA Raven Mascot" style="max-width: 300px; display: block; margin-top: 10px;">
+    </main>
+    <footer>
+        <p>&copy; 2024 My Website</p>
+    </footer>
+</body>
+</html>
